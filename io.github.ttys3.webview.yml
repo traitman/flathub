@@ -1,7 +1,7 @@
 id: io.github.ttys3.webview
 sdk: org.freedesktop.Sdk//23.08
 runtime: org.freedesktop.Platform
-runtime-version: stable
+runtime-version: '23.08'
 build-extension: true
 appstream-compose: false
 build-options:

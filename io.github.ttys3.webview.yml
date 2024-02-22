@@ -140,9 +140,12 @@ modules:
 
   - name: webkitgtk
     buildsystem: cmake-ninja
+    build-options:
+      no-debuginfo: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=None
+      - -DCMAKE_BUILD_TYPE=Release
       - -DPORT=GTK
+      - -DUSE_GTK4=ON
       - -DUSE_LIBSECRET=OFF
       - -DUSE_WOFF2=OFF
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF

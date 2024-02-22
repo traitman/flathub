@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>io.github.ttys3.webview</id>
+  <extends>io.github.ttys3.LarkGtk</extends>
+  <name>ttyS3 Webview Add-on</name>
+  <summary>Webview add-on that enables legacy clipboard image paste feature</summary>
+  <url type="homepage">https://www.webkitgtk.org</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LGPL-2.0</project_license>
+  <releases>
+    <release version="2.42.5" date="2024-02-05"/>
+    <release version="2.42.4" date="2023-12-15"/>
+    <release version="2.42.3" date="2023-12-05"/>
+    <release version="2.42.2" date="2023-11-10"/>
+    <release version="2.42.1" date="2023-09-27"/>
+    <release version="2.42.0" date="2023-09-15"/>
+    <release version="2.40.5" date="2023-08-01"/>
+    <release version="2.40.4" date="2023-07-21"/>
+    <release version="2.40.3" date="2023-06-28"/>
+    <release version="2.40.1" date="2023-04-19"/>
+    <release version="2.40.0" date="2023-03-17"/>
+    <release version="2.38.5" date="2023-02-15"/>
+    <release version="2.38.4" date="2023-02-02"/>
+    <release version="2.38.3" date="2022-12-22"/>
+    <release version="2.38.2" date="2022-11-04"/>
+    <release version="2.38.1" date="2022-10-20"/>
+    <release version="2.38.0" date="2022-09-16"/>
+    <release version="2.36.7" date="2022-08-24"/>
+    <release version="2.36.6" date="2022-08-07"/>
+    <release version="2.36.5" date="2022-07-28"/>
+    <release version="2.36.4" date="2022-07-04"/>
+    <release version="2.36.3" date="2022-05-28"/>
+    <release version="2.36.2" date="2022-05-17"/>
+    <release version="2.36.1" date="2022-04-21"/>
+    <release version="2.36.0" date="2022-03-21"/>
+    <release version="2.34.6" date="2022-02-17"/>
+    <release version="2.34.5" date="2022-02-08"/>
+    <release version="2.34.4" date="2022-01-20"/>
+    <release version="2.34.3" date="2021-12-20"/>
+    <release version="2.34.2" date="2021-11-24"/>
+  </releases>
+</component>

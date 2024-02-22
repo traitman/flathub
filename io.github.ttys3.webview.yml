@@ -1,6 +1,6 @@
-id: org.telegram.desktop.webview
+id: io.github.ttys3.webview
 sdk: org.freedesktop.Sdk//23.08
-runtime: org.telegram.desktop
+runtime: org.freedesktop.Platform
 runtime-version: stable
 build-extension: true
 appstream-compose: false
@@ -150,6 +150,12 @@ modules:
       - -DENABLE_INTROSPECTION=OFF
       - -DENABLE_SPELLCHECK=OFF
     sources:
+      - type: file
+        path: PasteboardGtk-legacy-clipboard-image-paste.patch
+      - type: file
+        path: EnlargeObjectSize.patch
+      - type: file
+        path: fix-FileReader-readAsDataURL-can-not-read-blob-issue.patch
       - type: archive
         url: https://webkitgtk.org/releases/webkitgtk-2.42.5.tar.xz
         sha256: b64278c1f20b8cfdbfb5ff573c37d871aba74a1db26d9b39f74e8953fe61e749
@@ -164,6 +170,9 @@ modules:
           - sed -i '/PATH_SUFFIXES avif/d' Source/cmake/FindAVIF.cmake
           - sed -i 's@${AVIF_INCLUDE_DIR}/avif.h@${AVIF_INCLUDE_DIR}/avif/avif.h@'
             Source/cmake/FindAVIF.cmake
+          - patch -p1 < ../PasteboardGtk-legacy-clipboard-image-paste.patch
+          - patch -p1 < ../EnlargeObjectSize.patch
+          - patch -p1 < ../fix-FileReader-readAsDataURL-can-not-read-blob-issue.patch
 
   - name: metadata
     buildsystem: simple
@@ -174,4 +183,4 @@ modules:
         --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} ${FLATPAK_ID}
     sources:
       - type: file
-        path: org.telegram.desktop.webview.metainfo.xml
+        path: io.github.ttys3.webview.metainfo.xml

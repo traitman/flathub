@@ -3,8 +3,12 @@
 set -eou pipefail
 
 #ref https://docs.flathub.org/docs/for-app-authors/submission/
+# tools prepare:
+# flatpak install -y flathub org.flatpak.Builder
+# or
+# sudo dnf install -y flatpak-builder
 
-flatpak-builder --force-clean --sandbox --user --install \
+flatpak run org.flatpak.Builder --force-clean --sandbox --user --install \
     --ccache --mirror-screenshots-url=https://dl.flathub.org/media/ \
     --repo=repo builddir \
     io.github.ttys3.webview.yml

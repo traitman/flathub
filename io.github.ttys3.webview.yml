@@ -153,12 +153,10 @@ modules:
       - -DENABLE_INTROSPECTION=OFF
       - -DENABLE_SPELLCHECK=OFF
     sources:
-      - type: file
-        path: PasteboardGtk-legacy-clipboard-image-paste.patch
-      - type: file
-        path: EnlargeObjectSize.patch
-      - type: file
-        path: fix-FileReader-readAsDataURL-can-not-read-blob-issue.patch
+      - type: git
+        url: https://github.com/ttys3/my-fedora-packages.git
+        tag: webkitgtk-2.42.5-1
+        dest: my-fedora-packages
       - type: archive
         url: https://webkitgtk.org/releases/webkitgtk-2.42.5.tar.xz
         sha256: b64278c1f20b8cfdbfb5ff573c37d871aba74a1db26d9b39f74e8953fe61e749
@@ -173,9 +171,9 @@ modules:
           - sed -i '/PATH_SUFFIXES avif/d' Source/cmake/FindAVIF.cmake
           - sed -i 's@${AVIF_INCLUDE_DIR}/avif.h@${AVIF_INCLUDE_DIR}/avif/avif.h@'
             Source/cmake/FindAVIF.cmake
-          - patch -p1 < ./PasteboardGtk-legacy-clipboard-image-paste.patch
-          - patch -p1 < ./EnlargeObjectSize.patch
-          - patch -p1 < ./fix-FileReader-readAsDataURL-can-not-read-blob-issue.patch
+          - patch -p1 < ./my-fedora-packages/src/webkitgtk/PasteboardGtk-legacy-clipboard-image-paste.patch
+          - patch -p1 < ./my-fedora-packages/src/webkitgtk/EnlargeObjectSize.patch
+          - patch -p1 < ./my-fedora-packages/src/webkitgtk/fix-FileReader-readAsDataURL-can-not-read-blob-issue.patch
 
   - name: metadata
     buildsystem: simple

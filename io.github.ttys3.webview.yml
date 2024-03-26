@@ -50,6 +50,8 @@ modules:
           timestamp-query: .published_at
           version-query: $tag
           url-query: '"https://github.com/google/highway/archive/\($tag)/highway-\($version).tar.gz"'
+    cleanup:
+      - '*'
 
   - name: libavif
     buildsystem: cmake-ninja
@@ -68,6 +70,8 @@ modules:
           timestamp-query: .published_at
           version-query: $tag | sub("^[vV]"; "")
           url-query: '"https://github.com/AOMediaCodec/libavif/archive/\($tag)/libavif-\($version).tar.gz"'
+    cleanup:
+      - '*'
 
   - name: libjxl
     buildsystem: cmake-ninja
@@ -97,7 +101,8 @@ modules:
           timestamp-query: .published_at
           version-query: $tag | sub("^[vV]"; "")
           url-query: '"https://github.com/libjxl/libjxl/archive/\($tag)/libjxl-\($version).tar.gz"'
-
+    cleanup:
+      - '*'
 
   - name: webkitgtk
     buildsystem: cmake-ninja

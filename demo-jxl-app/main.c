@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
   // Read input file data into memory
   fseek(file, 0, SEEK_END);
-  long file_size = ftell(file);
+  size_t file_size = ftell(file);
   fseek(file, 0, SEEK_SET);
   uint8_t *file_data = (uint8_t *)malloc(file_size);
   if (!file_data) {

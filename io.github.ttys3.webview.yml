@@ -104,51 +104,14 @@ modules:
     cleanup:
       - '*'
 
-  - name: webkitgtk
-    buildsystem: cmake-ninja
-    build-options:
-      no-debuginfo: true
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DPORT=GTK
-      - -DUSE_GTK4=ON
-      - -DUSE_LIBBACKTRACE=OFF
-      - -DUSE_LIBSECRET=OFF
-      - -DUSE_WOFF2=OFF
-      - -DENABLE_BUBBLEWRAP_SANDBOX=OFF
-      - -DENABLE_GAMEPAD=OFF
-      - -DENABLE_INTROSPECTION=OFF
-      - -DENABLE_SPELLCHECK=OFF
-    sources:
-      - type: git
-        url: https://github.com/ttys3/my-fedora-packages.git
-        tag: webkitgtk-2.44.0-1
-        dest: my-fedora-packages
-      - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.44.0.tar.xz
-        sha256: c66530e41ba59b1edba4ee89ef20b2188e273bed0497e95084729e3cfbe30c87
-        x-checker-data:
-          type: html
-          url: https://webkitgtk.org/releases/
-          version-pattern: LATEST-STABLE-(\d[\.\d]+\d)
-          url-template: https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
-      - type: shell
-        commands:
-          - sed -i 's@NAMES avif.h@NAMES avif/avif.h@' Source/cmake/FindAVIF.cmake
-          - sed -i '/PATH_SUFFIXES avif/d' Source/cmake/FindAVIF.cmake
-          - sed -i 's@${AVIF_INCLUDE_DIR}/avif.h@${AVIF_INCLUDE_DIR}/avif/avif.h@'
-            Source/cmake/FindAVIF.cmake
-          - patch -p1 < ./my-fedora-packages/src/webkitgtk/PasteboardGtk-legacy-clipboard-image-paste.patch
-          - patch -p1 < ./my-fedora-packages/src/webkitgtk/EnlargeObjectSize.patch
-          - patch -p1 < ./my-fedora-packages/src/webkitgtk/fix-FileReader-readAsDataURL-can-not-read-blob-issue.patch
-
-  - name: metadata
+  - name: demo-jxl-app
     buildsystem: simple
     build-commands:
-      - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo ${FLATPAK_ID}.metainfo.xml
-      - >-
-        appstream-compose --origin=flatpak
-        --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} ${FLATPAK_ID}
+      - echo "hello world"
+      - make clean
+      - make
+      - ldd ./jxl_info_dump
+      - ./jxl_info_dump ./logo.jxl
     sources:
-      - type: file
-        path: io.github.ttys3.webview.metainfo.xml
+      - type: dir
+        path: demo-jxl-app

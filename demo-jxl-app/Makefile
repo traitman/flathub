@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -I/path/to/libjxl/include
-LDFLAGS = -L/path/to/libjxl/lib -ljxl
+CFLAGS = -Wall -Wextra
+LDFLAGS = -ljxl
 
 TARGET = jxl_info_dump
 SRCS = main.c

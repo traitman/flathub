@@ -45,6 +45,8 @@ modules:
       - -DENABLE_GAMEPAD=OFF
       - -DENABLE_INTROSPECTION=OFF
       - -DENABLE_SPELLCHECK=OFF
+    make-args:
+      - -j 15
     sources:
       - type: git
         url: https://github.com/ttys3/my-fedora-packages.git

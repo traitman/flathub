@@ -50,7 +50,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/ttys3/my-fedora-packages.git
-        tag: webkitgtk-2.44.2-1
+        tag: webkitgtk-2.44.3-2
         dest: my-fedora-packages
       - type: archive
         url: https://webkitgtk.org/releases/webkitgtk-2.44.3.tar.xz
@@ -69,6 +69,8 @@ modules:
           - patch -p1 < ./my-fedora-packages/src/webkitgtk/PasteboardGtk-legacy-clipboard-image-paste.patch
           - patch -p1 < ./my-fedora-packages/src/webkitgtk/EnlargeObjectSize.patch
           - patch -p1 < ./my-fedora-packages/src/webkitgtk/fix-FileReader-readAsDataURL-can-not-read-blob-issue.patch
+          - patch -p1 < ./my-fedora-packages/src/webkitgtk/clang-with-LTO-enabled-segfaults-workaround.patch
+          - patch -p1 < ./my-fedora-packages/src/webkitgtk/jsc-WasmBBQJIT-crash-workaround.patch
 
   - name: metadata
     buildsystem: simple

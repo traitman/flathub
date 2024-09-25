@@ -70,13 +70,13 @@ modules:
           - patch -p1 < ./my-fedora-packages/src/webkitgtk/EnlargeObjectSize.patch
           - patch -p1 < ./my-fedora-packages/src/webkitgtk/fix-FileReader-readAsDataURL-can-not-read-blob-issue.patch
 
-  - name: metadata
-    buildsystem: simple
-    build-commands:
-      - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo ${FLATPAK_ID}.metainfo.xml
-      - >-
-        appstream-compose --origin=flatpak
-        --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} ${FLATPAK_ID}
-    sources:
-      - type: file
-        path: io.github.ttys3.webview.metainfo.xml
+  # - name: metadata
+  #   buildsystem: simple
+  #   build-commands:
+  #     - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo ${FLATPAK_ID}.metainfo.xml
+  #     - >-
+  #       appstream-compose --origin=flatpak
+  #       --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} ${FLATPAK_ID}
+  #   sources:
+  #     - type: file
+  #       path: io.github.ttys3.webview.metainfo.xml
